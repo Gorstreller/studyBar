@@ -69,10 +69,6 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public int getGroupCount() {
-        return driver.findElements(By.name("selected[]")).size();
-    }
-
     public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<GroupData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
