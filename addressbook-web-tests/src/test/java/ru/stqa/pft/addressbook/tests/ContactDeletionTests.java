@@ -3,15 +3,18 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class ContactDeletionTests extends TestBase{
 
     @Test
     public void testContactDeletion() {
-        List<ContactData> before = app.contact().list();
+        Set<ContactData> before = app.contact().all();
+        ContactData deletedContact = before.iterator().next();
         if (! app.contact().isThereAContact()) {
             app.goTo().contactPage();
             String path = "C:\\Java lessons\\addressbook-web-tests\\src\\test\\java\\ru\\stqa\\pft\\addressbook\\Элена и Вела.jpg";
@@ -23,16 +26,12 @@ public class ContactDeletionTests extends TestBase{
                     .withAnniversaryMonth("November").withAnniversaryYear("1997").withAddress2("address2")
                     .withHome2("home2").withNotes("notes").withGroup("test1"), path);
         }
-        int index = before.size() - 1;
-        app.contact().delete(index);
+        app.contact().delete(deletedContact);
 
-        List<ContactData> after = app.contact().list();
+        Set<ContactData> after = app.contact().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size() - 1);
-        Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-        before.sort(byId);
-        after.sort(byId);
+        before.remove(deletedContact);
         Assert.assertEquals(before, after);
     }
 }

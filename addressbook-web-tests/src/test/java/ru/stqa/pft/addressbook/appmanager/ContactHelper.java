@@ -1,5 +1,8 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,17 +27,28 @@ public class ContactHelper extends HelperBase {
         contactCache = null;
     }
 
-    public void modify(ContactData contact, int index) {
-        initContactEdition(index);
+    public void modify(ContactData contact) {
+        initContactEditById(contact);
         fillContactForm(contact, false);
         submitContactModification();
         contactCache = null;
         returnToHomePage();
     }
 
-    public void delete(int index) {
-        initContactEdition(index);
+    private void initContactEditById(ContactData modifiedContact) {
+        int id = modifiedContact.getId();
+        click(By.xpath("//td/a[@href='edit.php?id=" + id + "']" +
+                "/img[@title = 'Edit']"));
+//        driver.findElement(By.cssSelector("input[value='" + id + "']"))
+//                .findElement(By.xpath("td::tr[name()='entry']"))
+//                .findElement(By.xpath("td[8]")).click();
+
+    }
+
+    public void delete(ContactData contact) {
+        initContactDeletionById(contact.getId());
         submitContactDeletion();
+        submitAlert(5);
         contactCache = null;
         returnToHomePage();
     }
@@ -55,11 +69,31 @@ public class ContactHelper extends HelperBase {
         type(By.name("email2"), contactData.getEmail2());
         type(By.name("email3"), contactData.getEmail3());
         type(By.name("homepage"), contactData.getHomepage());
-        setDate(By.name("bday"), contactData.getBirthDay());
-        setDate(By.name("bmonth"), contactData.getBirthMonth());
+        String birthDay = contactData.getBirthDay();
+
+        if (birthDay == null) {
+            birthDay = "-";
+        }
+        setDate(By.name("bday"), birthDay);
+
+        String birthMonth = contactData.getBirthMonth();
+        if (birthMonth == null) {
+            birthMonth = "-";
+        }
+        setDate(By.name("bmonth"), birthMonth);
         type(By.name("byear"), contactData.getBirthYear());
-        setDate(By.name("aday"), contactData.getAnniversaryDay());
-        setDate(By.name("amonth"), contactData.getAnniversaryMonth());
+
+        String anniversaryDay = contactData.getAnniversaryDay();
+        if (anniversaryDay == null) {
+            anniversaryDay = "-";
+        }
+        setDate(By.name("aday"), anniversaryDay);
+
+        String anniversaryMonth = contactData.getAnniversaryMonth();
+        if (anniversaryMonth == null) {
+            anniversaryMonth = "-";
+        }
+        setDate(By.name("amonth"), anniversaryMonth);
         type(By.name("ayear"), contactData.getAnniversaryYear());
         type(By.name("address2"), contactData.getAddress2());
         type(By.name("phone2"), contactData.getHome2());
@@ -94,12 +128,23 @@ public class ContactHelper extends HelperBase {
         driver.findElements(By.cssSelector("a > img[title = 'Edit']")).get(index).click();
     }
 
+    public void initContactDeletionById(int id) {
+        driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
     public void submitContactDeletion() {
-        click(By.cssSelector("form[method = 'get'] > input[value = 'Delete']"));
+        click(By.cssSelector("div.left > input[value = 'Delete']"));
     }
 
     public void submitContactModification() {
         click(By.name("update"));
+    }
+
+    public void submitAlert(int timeOutInSeconds) {
+        WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+        wait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
     }
 
     public boolean isThereAContact() {
@@ -108,20 +153,6 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
         return driver.findElements(By.name("selected[]")).size();
-    }
-
-    public List<ContactData> list() {
-        List<ContactData> contacts = new ArrayList<ContactData>();
-        String locator = "//tr[@name = 'entry']";
-        List<WebElement> elements = driver.findElements(By.xpath(locator));
-        for (WebElement element : elements) {
-            WebElement text = driver.findElement(By.xpath(locator + "//td[position() = 2]"));
-            String firstName = text.getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-            ContactData contact = new ContactData().withId(id).withFirstName(firstName);
-            contacts.add(contact);
-        }
-        return contacts;
     }
 
     private Contacts contactCache = null;
@@ -134,9 +165,11 @@ public class ContactHelper extends HelperBase {
         List<WebElement> elements = driver.findElements(By.cssSelector("tr[name = 'entry']"));
         for (WebElement element : elements) {
             String firstName = element.findElement(By.xpath("//td[position()=2]")).getText();
-            int id = Integer.parseInt(element.findElement(By.xpath("//td[position()=2]")).getAttribute("value"));
+            int id = Integer.parseInt(element.findElement(By.cssSelector("td.center > input[name='selected[]']"))
+                    .getAttribute("value"));
             contactCache.add(new ContactData().withId(id).withFirstName(firstName));
         }
         return new Contacts(contactCache);
     }
+
 }
