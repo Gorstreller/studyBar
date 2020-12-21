@@ -19,6 +19,12 @@ public class ContactData {
     private final String email2;
     private final String email3;
     private final String homepage;
+    private final String birthDay;
+    private final String birthMonth;
+    private final String birthYear;
+    private final String anniversaryDay;
+    private final String anniversaryMonth;
+    private final String anniversaryYear;
     private final String address2;
     private final String home2;
     private final String notes;
@@ -27,7 +33,8 @@ public class ContactData {
     public ContactData(int id, String firstName, String middleName, String lastName, String nickName,
                        String title, String company, String address, String home, String mobile,
                        String work, String fax, String email, String email2, String email3,
-                       String homepage, String address2, String home2, String notes, String group) {
+                       String homepage, String birthDay, String birthMonth, String birthYear, String anniversaryDay,
+                       String anniversaryMonth, String anniversaryYear, String address2, String home2, String notes, String group) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -44,6 +51,12 @@ public class ContactData {
         this.email2 = email2;
         this.email3 = email3;
         this.homepage = homepage;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
+        this.anniversaryDay = anniversaryDay;
+        this.anniversaryMonth = anniversaryMonth;
+        this.anniversaryYear = anniversaryYear;
         this.address2 = address2;
         this.home2 = home2;
         this.notes = notes;
@@ -53,7 +66,9 @@ public class ContactData {
     public ContactData(String firstName, String middleName, String lastName, String nickName,
                        String title, String company, String address, String home, String mobile,
                        String work, String fax, String email, String email2, String email3,
-                       String homepage, String address2, String home2, String notes, String group) {
+                       String homepage, String birthDay, String birthMonth, String birthYear,
+                       String anniversaryDay, String anniversaryMonth, String anniversaryYear,
+                       String address2, String home2, String notes, String group) {
         this.id = Integer.MAX_VALUE;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -70,6 +85,12 @@ public class ContactData {
         this.email2 = email2;
         this.email3 = email3;
         this.homepage = homepage;
+        this.birthDay = birthDay;
+        this.birthMonth = birthMonth;
+        this.birthYear = birthYear;
+        this.anniversaryDay = anniversaryDay;
+        this.anniversaryMonth = anniversaryMonth;
+        this.anniversaryYear = anniversaryYear;
         this.address2 = address2;
         this.home2 = home2;
         this.notes = notes;
@@ -140,6 +161,30 @@ public class ContactData {
         return homepage;
     }
 
+    public String getBirthDay() {
+        return birthDay;
+    }
+
+    public String getBirthMonth() {
+        return birthMonth;
+    }
+
+    public String getBirthYear() {
+        return birthYear;
+    }
+
+    public String getAnniversaryDay() {
+        return anniversaryDay;
+    }
+
+    public String getAnniversaryMonth() {
+        return anniversaryMonth;
+    }
+
+    public String getAnniversaryYear() {
+        return anniversaryYear;
+    }
+
     public String getAddress2() {
         return address2;
     }
@@ -154,6 +199,11 @@ public class ContactData {
 
     public String getGroup() {
         return group;
+    }
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
     }
 
     @Override

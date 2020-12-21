@@ -11,27 +11,27 @@ import java.util.List;
 
 public class ContactModificationTests extends TestBase {
 
-    @Test(enabled = false)
+    @Test
     public void testContactModification() {
-        List<ContactData> before = app.getContactHelper().getContactList();
-        if (! app.getContactHelper().isThereAContact()) {
+        List<ContactData> before = app.contact().getContactList();
+        if (! app.contact().isThereAContact()) {
             app.goTo().gotoContactPage();
-            app.getContactHelper().createContact(new ContactData("Test1", "Test2", "Test3",
+            app.contact().createContact(new ContactData( "Test3", "Test2", "Test3",
                     "Test4", "Test", "Test", "Test", "home", "mobile", "job",
-                    "fax", "email", "email2", "email3", "page", "address2",
-                    "home2", "notes", "test1"), new Dates("1997", "1997"));
+                    "fax", "email", "email2", "email3", "page", "11",
+                    "March", "1997", "20", "November", "1997",
+                    "address2", "home2", "notes", "test1"));
         }
-        app.getContactHelper().initContactEdition(before.size() - 1);
-        ContactData contact = new ContactData( "Test3", "Test2", "Test3",
+        app.contact().initContactEdition(before.size() - 1);
+        ContactData contact = new ContactData( "Test3", "Modified", "Test3",
                 "Test4", "Test", "Test", "Test", "home", "mobile", "job",
-                "fax", "email", "email2", "email3", "page", "address2",
-                "home2", "notes", "test1");
-        app.getContactHelper().fillContactForm(contact, false);
-        app.getContactHelper().selectDates(new Dates("1997", "1997"), By.name("bday"),
-                By.name("bmonth"), By.name("aday"), By.name("amonth"), "11");
-        app.getContactHelper().submitContactModification();
-        app.getContactHelper().returnToHomePage();
-        List<ContactData> after = app.getContactHelper().getContactList();
+                "fax", "email", "email2", "email3", "page", "11",
+                "March", "1997", "20", "November", "1997",
+                "address2", "home2", "notes", "test1");
+        app.contact().fillContactForm(contact, false);
+        app.contact().submitContactModification();
+        app.contact().returnToHomePage();
+        List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(), before.size());
 
         Comparator<? super ContactData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
