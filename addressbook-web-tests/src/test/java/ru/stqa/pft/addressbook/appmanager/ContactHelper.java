@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,28 @@ public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
         super(driver);
+    }
+
+    public void create(ContactData contact, String pathToPhoto) {
+        fillContactForm(contact, true);
+        loadPhoto(By.name("photo"), pathToPhoto);
+        submitContactCreation();
+        contactCache = null;
+    }
+
+    public void modify(ContactData contact, int index) {
+        initContactEdition(index);
+        fillContactForm(contact, false);
+        submitContactModification();
+        contactCache = null;
+        returnToHomePage();
+    }
+
+    public void delete(int index) {
+        initContactEdition(index);
+        submitContactDeletion();
+        contactCache = null;
+        returnToHomePage();
     }
 
     public void fillContactForm(ContactData contactData, boolean creation) {
@@ -79,14 +102,6 @@ public class ContactHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void createContact(ContactData contactData) {
-        fillContactForm(contactData, true);
-        loadPhoto(By.name("photo"),
-                "C:\\Java lessons\\addressbook-web-tests\\src\\test\\java\\ru\\stqa\\pft\\addressbook\\Элена и Вела.jpg");
-        submitContactCreation();
-        returnToHomePage();
-    }
-
     public boolean isThereAContact() {
         return isElementPresent(By.cssSelector("a > img[title = 'Edit']"));
     }
@@ -95,21 +110,33 @@ public class ContactHelper extends HelperBase {
         return driver.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
         String locator = "//tr[@name = 'entry']";
         List<WebElement> elements = driver.findElements(By.xpath(locator));
         for (WebElement element : elements) {
             WebElement text = driver.findElement(By.xpath(locator + "//td[position() = 2]"));
-            String name = text.getText();
+            String firstName = text.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-            ContactData contact = new ContactData(id, name, "Test2", "Test3",
-                    "Test4", "Test", "Test", "Test", "home", "mobile", "job",
-                    "fax", "email", "email2", "email3", "page", "11",
-                    "March", "1997", "20", "November", "1997",
-                    "address2", "home2", "notes", null);
+            ContactData contact = new ContactData().withId(id).withFirstName(firstName);
             contacts.add(contact);
         }
         return contacts;
+    }
+
+    private Contacts contactCache = null;
+
+    public Contacts all() {
+        if (contactCache != null) {
+            return new Contacts(contactCache);
+        }
+        contactCache = new Contacts();
+        List<WebElement> elements = driver.findElements(By.cssSelector("tr[name = 'entry']"));
+        for (WebElement element : elements) {
+            String firstName = element.findElement(By.xpath("//td[position()=2]")).getText();
+            int id = Integer.parseInt(element.findElement(By.xpath("//td[position()=2]")).getAttribute("value"));
+            contactCache.add(new ContactData().withId(id).withFirstName(firstName));
+        }
+        return new Contacts(contactCache);
     }
 }

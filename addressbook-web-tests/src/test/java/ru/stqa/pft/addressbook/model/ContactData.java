@@ -3,99 +3,32 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private int id;
-    private final String firstName;
-    private final String middleName;
-    private final String lastName;
-    private final String nickName;
-    private final String title;
-    private final String company;
-    private final String address;
-    private final String home;
-    private final String mobile;
-    private final String work;
-    private final String fax;
-    private final String email;
-    private final String email2;
-    private final String email3;
-    private final String homepage;
-    private final String birthDay;
-    private final String birthMonth;
-    private final String birthYear;
-    private final String anniversaryDay;
-    private final String anniversaryMonth;
-    private final String anniversaryYear;
-    private final String address2;
-    private final String home2;
-    private final String notes;
+    private int id = Integer.MAX_VALUE;
+    private String firstName;
+    private String middleName;
+    private String lastName;
+    private String nickName;
+    private String title;
+    private String company;
+    private String address;
+    private String home;
+    private String mobile;
+    private String work;
+    private String fax;
+    private String email;
+    private String email2;
+    private String email3;
+    private String homepage;
+    private String birthDay;
+    private String birthMonth;
+    private String birthYear;
+    private String anniversaryDay;
+    private String anniversaryMonth;
+    private String anniversaryYear;
+    private String address2;
+    private String home2;
+    private String notes;
     private String group;
-
-    public ContactData(int id, String firstName, String middleName, String lastName, String nickName,
-                       String title, String company, String address, String home, String mobile,
-                       String work, String fax, String email, String email2, String email3,
-                       String homepage, String birthDay, String birthMonth, String birthYear, String anniversaryDay,
-                       String anniversaryMonth, String anniversaryYear, String address2, String home2, String notes, String group) {
-        this.id = id;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.nickName = nickName;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.fax = fax;
-        this.email = email;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.birthDay = birthDay;
-        this.birthMonth = birthMonth;
-        this.birthYear = birthYear;
-        this.anniversaryDay = anniversaryDay;
-        this.anniversaryMonth = anniversaryMonth;
-        this.anniversaryYear = anniversaryYear;
-        this.address2 = address2;
-        this.home2 = home2;
-        this.notes = notes;
-        this.group = group;
-    }
-
-    public ContactData(String firstName, String middleName, String lastName, String nickName,
-                       String title, String company, String address, String home, String mobile,
-                       String work, String fax, String email, String email2, String email3,
-                       String homepage, String birthDay, String birthMonth, String birthYear,
-                       String anniversaryDay, String anniversaryMonth, String anniversaryYear,
-                       String address2, String home2, String notes, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.nickName = nickName;
-        this.title = title;
-        this.company = company;
-        this.address = address;
-        this.home = home;
-        this.mobile = mobile;
-        this.work = work;
-        this.fax = fax;
-        this.email = email;
-        this.email2 = email2;
-        this.email3 = email3;
-        this.homepage = homepage;
-        this.birthDay = birthDay;
-        this.birthMonth = birthMonth;
-        this.birthYear = birthYear;
-        this.anniversaryDay = anniversaryDay;
-        this.anniversaryMonth = anniversaryMonth;
-        this.anniversaryYear = anniversaryYear;
-        this.address2 = address2;
-        this.home2 = home2;
-        this.notes = notes;
-        this.group = group;
-    }
 
     public int getId() {
         return id;
@@ -206,6 +139,131 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public ContactData withMiddleName(String middleName) {
+        this.middleName = middleName;
+        return this;
+    }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withNickName(String nickName) {
+        this.nickName = nickName;
+        return this;
+    }
+
+    public ContactData withTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    public ContactData withCompany(String company) {
+        this.company = company;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public ContactData withHome(String home) {
+        this.home = home;
+        return this;
+    }
+
+    public ContactData withMobile(String mobile) {
+        this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData withWork(String work) {
+        this.work = work;
+        return this;
+    }
+
+    public ContactData withFax(String fax) {
+        this.fax = fax;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
+        this.email = email;
+        return this;
+    }
+
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
+        return this;
+    }
+
+    public ContactData withHomepage(String homepage) {
+        this.homepage = homepage;
+        return this;
+    }
+
+    public ContactData withBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+        return this;
+    }
+
+    public ContactData withBirthMonth(String birthMonth) {
+        this.birthMonth = birthMonth;
+        return this;
+    }
+
+    public ContactData withBirthYear(String birthYear) {
+        this.birthYear = birthYear;
+        return this;
+    }
+
+    public ContactData withAnniversaryDay(String anniversaryDay) {
+        this.anniversaryDay = anniversaryDay;
+        return this;
+    }
+
+    public ContactData withAnniversaryMonth(String anniversaryMonth) {
+        this.anniversaryMonth = anniversaryMonth;
+        return this;
+    }
+
+    public ContactData withAnniversaryYear(String anniversaryYear) {
+        this.anniversaryYear = anniversaryYear;
+        return this;
+    }
+
+    public ContactData withAddress2(String address2) {
+        this.address2 = address2;
+        return this;
+    }
+
+    public ContactData withHome2(String home2) {
+        this.home2 = home2;
+        return this;
+    }
+
+    public ContactData withNotes(String notes) {
+        this.notes = notes;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "ContactData{" +
@@ -219,11 +277,11 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return Objects.equals(firstName, that.firstName);
+        return id == that.id && Objects.equals(firstName, that.firstName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName);
+        return Objects.hash(id, firstName);
     }
 }
