@@ -21,9 +21,8 @@ public class ContactHelper extends HelperBase {
         super(driver);
     }
 
-    public void create(ContactData contact, String pathToPhoto) {
+    public void create(ContactData contact) {
         fillContactForm(contact, true);
-        loadPhoto(By.name("photo"), pathToPhoto);
         submitContactCreation();
         contactCache = null;
     }
@@ -58,6 +57,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("middlename"), contactData.getMiddleName());
         type(By.name("lastname"), contactData.getLastName());
         type(By.name("nickname"), contactData.getNickName());
+        attach(By.name("photo"), contactData.getPhoto());
         type(By.name("title"), contactData.getTitle());
         type(By.name("company"), contactData.getCompany());
         type(By.name("address"), contactData.getAddress());

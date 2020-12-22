@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
-import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.Set;
 
@@ -24,7 +23,7 @@ public class ContactDeletionTests extends TestBase{
                     .withEmail("email1").withEmail2("email2").withEmail3("email3").withHomepage("page")
                     .withBirthDay("11").withBirthMonth("March").withBirthYear("1997").withAnniversaryDay("20")
                     .withAnniversaryMonth("November").withAnniversaryYear("1997").withAddress2("address2")
-                    .withHome2("home2").withNotes("notes").withGroup("test1"), path);
+                    .withHome2("home2").withNotes("notes").withGroup("test1"));
         }
         app.contact().delete(deletedContact);
         assertThat(app.contact().count(), equalTo(before.size() - 1));
