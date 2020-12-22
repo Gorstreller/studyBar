@@ -1,11 +1,9 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.util.Comparator;
-import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -21,7 +19,7 @@ public class ContactModificationTests extends TestBase {
             app.goTo().contactPage();
             app.contact().create(new ContactData().withFirstName("Name").withMiddleName("MiddleName")
                     .withLastName("LastName").withNickName("NickName").withTitle("title").withCompany("company")
-                    .withAddress("address1").withHome("home").withMobile("mobile").withWork("job").withFax("fax")
+                    .withAddress("address1").withHomePhone("home").withMobilePhone("mobile").withWorkPhone("job").withFax("fax")
                     .withEmail("email1").withEmail2("email2").withEmail3("email3").withHomepage("page")
                     .withBirthDay("11").withBirthMonth("March").withBirthYear("1997").withAnniversaryDay("20")
                     .withAnniversaryMonth("November").withAnniversaryYear("1997").withAddress2("address2")
@@ -30,18 +28,16 @@ public class ContactModificationTests extends TestBase {
         }
         ContactData contact = new ContactData().withId(modifiedContact.getId()).withFirstName("test1").withMiddleName("Modified")
                 .withLastName("LastName").withNickName("NickName").withTitle("title").withCompany("company")
-                .withAddress("address1").withHome("home").withMobile("mobile").withWork("job").withFax("fax")
+                .withAddress("address1").withHomePhone("home").withMobilePhone("mobile").withWorkPhone("job").withFax("fax")
                 .withEmail("email1").withEmail2("email2").withEmail3("email3").withHomepage("page")
                 .withBirthDay("11").withBirthMonth("March").withBirthYear("1997").withAnniversaryDay("20")
                 .withAnniversaryMonth("November").withAnniversaryYear("1997").withAddress2("address2")
                 .withHome2("home2").withNotes("notes").withGroup("test1");
         app.contact().modify(contact);
+        assertThat(app.contact().count(), equalTo(before.size()));
         Set<ContactData> after = app.contact().all();
-        Assert.assertEquals(after.size(), before.size());
-        after.remove(contact);
-        after.add(modifiedContact);
+        assertThat(after.size(), equalTo(before.size()));
 
-        Assert.assertEquals(before, after);
-//        assertThat(before, equalTo(after));
+//        assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
     }
 }
