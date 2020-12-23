@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="2" ignored="5" total="14" passed="7">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite1" duration-ms="18982" started-at="2020-12-23T14:18:32Z" finished-at="2020-12-23T14:18:51Z">
+    <groups>
+    </groups>
+    <test name="Groups" duration-ms="9869" started-at="2020-12-23T14:18:32Z" finished-at="2020-12-23T14:18:42Z">
+      <class name="ru.stqa.pft.addressbook.tests.GroupDeletionTests">
+        <test-method status="PASS" signature="ensurePreconditions()[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupDeletionTests@22635ba0]" name="ensurePreconditions" is-config="true" duration-ms="92" started-at="2020-12-23T14:18:41Z" finished-at="2020-12-23T14:18:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ensurePreconditions -->
+        <test-method status="PASS" signature="testGroupDeletion()[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupDeletionTests@22635ba0]" name="testGroupDeletion" duration-ms="1234" started-at="2020-12-23T14:18:41Z" finished-at="2020-12-23T14:18:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGroupDeletion -->
+      </class> <!-- ru.stqa.pft.addressbook.tests.GroupDeletionTests -->
+      <class name="ru.stqa.pft.addressbook.tests.GroupModificationTests">
+        <test-method status="PASS" signature="ensurePreconditions()[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupModificationTests@1df82230]" name="ensurePreconditions" is-config="true" duration-ms="96" started-at="2020-12-23T14:18:39Z" finished-at="2020-12-23T14:18:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ensurePreconditions -->
+        <test-method status="PASS" signature="testGroupModification()[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupModificationTests@1df82230]" name="testGroupModification" duration-ms="1832" started-at="2020-12-23T14:18:39Z" finished-at="2020-12-23T14:18:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGroupModification -->
+      </class> <!-- ru.stqa.pft.addressbook.tests.GroupModificationTests -->
+      <class name="ru.stqa.pft.addressbook.tests.GroupCreationTests">
+        <test-method status="PASS" signature="testGroupCreation(ru.stqa.pft.addressbook.model.GroupData)[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupCreationTests@79ad8b2f]" name="testGroupCreation" duration-ms="2996" started-at="2020-12-23T14:18:32Z" data-provider="validGroupsFromJson" finished-at="2020-12-23T14:18:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GroupData{id='80', name='test 0'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGroupCreation -->
+        <test-method status="PASS" signature="testGroupCreation(ru.stqa.pft.addressbook.model.GroupData)[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupCreationTests@79ad8b2f]" name="testGroupCreation" duration-ms="1815" started-at="2020-12-23T14:18:35Z" data-provider="validGroupsFromJson" finished-at="2020-12-23T14:18:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GroupData{id='81', name='test 1'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGroupCreation -->
+        <test-method status="PASS" signature="testGroupCreation(ru.stqa.pft.addressbook.model.GroupData)[pri:0, instance:ru.stqa.pft.addressbook.tests.GroupCreationTests@79ad8b2f]" name="testGroupCreation" duration-ms="1725" started-at="2020-12-23T14:18:37Z" data-provider="validGroupsFromJson" finished-at="2020-12-23T14:18:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[GroupData{id='82', name='test 2'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGroupCreation -->
+      </class> <!-- ru.stqa.pft.addressbook.tests.GroupCreationTests -->
+    </test> <!-- Groups -->
+    <test name="Contacts" duration-ms="9085" started-at="2020-12-23T14:18:42Z" finished-at="2020-12-23T14:18:51Z">
+      <class name="ru.stqa.pft.addressbook.tests.ContactCreationTests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:ru.stqa.pft.addressbook.tests.ContactCreationTests@60dcc9fe]" name="setUp" is-config="true" duration-ms="6081" started-at="2020-12-23T14:18:26Z" finished-at="2020-12-23T14:18:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="testContactBadCreation()[pri:0, instance:ru.stqa.pft.addressbook.tests.ContactCreationTests@60dcc9fe]" name="testContactBadCreation" duration-ms="654" started-at="2020-12-23T14:18:42Z" finished-at="2020-12-23T14:18:43Z">
+          <exception class="org.openqa.selenium.InvalidArgumentException">
+            <message>
+              <![CDATA[invalid argument: 
+  (Session info: chrome=87.0.4280.88)
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'DESKTOP-729EO41', ip: '172.17.32.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\1\AppData\Local\Te...}, goog:chromeOptions: {debuggerAddress: localhost:61163}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 735ca5fb9e44f07cb7fe649129fc3aea]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidArgumentException: invalid argument: 
+  (Session info: chrome=87.0.4280.88)
+Build info: version: '4.0.0-alpha-7', revision: 'de8579b6d5'
+System info: host: 'DESKTOP-729EO41', ip: '172.17.32.84', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_261'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 87.0.4280.88, chrome: {chromedriverVersion: 87.0.4280.20 (c99e81631faa0..., userDataDir: C:\Users\1\AppData\Local\Te...}, goog:chromeOptions: {debuggerAddress: localhost:61163}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: 735ca5fb9e44f07cb7fe649129fc3aea
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:196)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:129)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:53)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:167)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:123)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:501)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:238)
+at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:109)
+at ru.stqa.pft.addressbook.appmanager.HelperBase.attach(HelperBase.java:33)
+at ru.stqa.pft.addressbook.appmanager.ContactHelper.fillContactForm(ContactHelper.java:60)
+at ru.stqa.pft.addressbook.appmanager.ContactHelper.create(ContactHelper.java:25)
+at ru.stqa.pft.addressbook.tests.ContactCreationTests.testContactBadCreation(ContactCreationTests.java:61)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:178)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:92)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:96)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:159)
+at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:87)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidArgumentException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContactBadCreation -->
+        <test-method status="FAIL" signature="testContactCreation(ru.stqa.pft.addressbook.model.ContactData)[pri:0, instance:ru.stqa.pft.addressbook.tests.ContactCreationTests@60dcc9fe]" name="testContactCreation" duration-ms="1907" started-at="2020-12-23T14:18:43Z" data-provider="validContacts" finished-at="2020-12-23T14:18:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ContactData{id=0, firstName='name 0'}]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[
+Expected: <1>
+     but: was <12>]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: 
+Expected: <1>
+     but: was <12>
+at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:20)
+at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+at ru.stqa.pft.addressbook.tests.ContactCreationTests.testContactCreation(ContactCreationTests.java:44)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:178)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:92)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:96)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray2(ReflectionUtils.java:208)
+at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:159)
+at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:87)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:95)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContactCreation -->
+        <test-method status="PASS" signature="testContactCreation(ru.stqa.pft.addressbook.model.ContactData)[pri:0, instance:ru.stqa.pft.addressbook.tests.ContactCreationTests@60dcc9fe]" name="testContactCreation" duration-ms="3375" started-at="2020-12-23T14:18:45Z" data-provider="validContacts" finished-at="2020-12-23T14:18:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ContactData{id=0, firstName='name 1'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContactCreation -->
+        <test-method status="PASS" signature="testContactCreation(ru.stqa.pft.addressbook.model.ContactData)[pri:0, instance:ru.stqa.pft.addressbook.tests.ContactCreationTests@60dcc9fe]" name="testContactCreation" duration-ms="2977" started-at="2020-12-23T14:18:48Z" data-provider="validContacts" finished-at="2020-12-23T14:18:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ContactData{id=0, firstName='name 2'}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testContactCreation -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:ru.stqa.pft.addressbook.tests.ContactCreationTests@60dcc9fe]" name="tearDown" is-config="true" duration-ms="627" started-at="2020-12-23T14:18:51Z" finished-at="2020-12-23T14:18:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ru.stqa.pft.addressbook.tests.ContactCreationTests -->
+    </test> <!-- Contacts -->
+  </suite> <!-- Suite1 -->
+</testng-results>

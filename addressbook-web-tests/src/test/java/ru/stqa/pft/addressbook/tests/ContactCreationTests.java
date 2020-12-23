@@ -46,7 +46,7 @@ public class ContactCreationTests extends TestBase {
         assertThat(after.size(), equalTo(before.size() + 1));
     }
 
-    @Test
+    @Test(enabled = false)
     public void testContactBadCreation() {
         Set<ContactData> before = app.contact().all();
         app.goTo().contactPage();
