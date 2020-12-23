@@ -37,6 +37,12 @@
             <artifactId>jcommander</artifactId>
             <version>1.78</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.8</version>
+        </dependency>
     </dependencies>
 
 </project>
