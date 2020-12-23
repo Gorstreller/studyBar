@@ -15,7 +15,7 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation() {
         Set<ContactData> before = app.contact().all();
         app.goTo().contactPage();
-        File photo = new File("src/test/java/ru/stqa/pft/addressbook/Элена и Вела.jpg");
+        File photo = new File("src/test/resources/Элена и Вела.jpg");
         ContactData contact = new ContactData().withFirstName("Name").withMiddleName("MiddleName")
                 .withLastName("LastName").withNickName("NickName").withTitle("title").withCompany("company")
                 .withAddress("address1").withHomePhone("home").withMobilePhone("mobile").withWorkPhone("job").withFax("fax")
@@ -37,7 +37,7 @@ public class ContactCreationTests extends TestBase {
     public void testContactBadCreation() {
         Set<ContactData> before = app.contact().all();
         app.goTo().contactPage();
-        File photo = new File("src/test/java/ru/stqa/pft/addressbook/Элена и Вела.jpg");
+        File photo = new File("src/test/resources/Элена и Вела.jpg");
         ContactData contact = new ContactData().withFirstName("Name'").withMiddleName("MiddleName'")
                 .withLastName("LastName'").withNickName("NickName").withTitle("title").withCompany("company")
                 .withAddress("address1").withHomePhone("home").withMobilePhone("mobile").withWorkPhone("job").withFax("fax")
