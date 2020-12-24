@@ -5,6 +5,7 @@
     <lastName>last 0</lastName>
     <homepage>home 0</homepage>
     <group>test 0</group>
+    <photo>src\test\resources\Элена и Вела.jpg</photo>
   </contact>
   <contact>
     <firstName>name 1</firstName>
@@ -12,6 +13,7 @@
     <lastName>last 1</lastName>
     <homepage>home 1</homepage>
     <group>test 1</group>
+    <photo>src\test\resources\Элена и Вела.jpg</photo>
   </contact>
   <contact>
     <firstName>name 2</firstName>
@@ -19,5 +21,6 @@
     <lastName>last 2</lastName>
     <homepage>home 2</homepage>
     <group>test 2</group>
+    <photo>src\test\resources\Элена и Вела.jpg</photo>
   </contact>
 </list>
