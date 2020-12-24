@@ -2,41 +2,109 @@ package ru.stqa.pft.addressbook.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
     @XStreamOmitField
+    @Id
+    @Column(name = "id")
     private int id = Integer.MAX_VALUE;
+
+    @Column(name = "firstname")
     private String firstName;
+
+    @Column(name = "middlename")
     private String middleName;
+
+    @Column(name = "lastname")
     private String lastName;
+
+    @Column(name = "nickname")
     private String nickName;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "company")
     private String company;
+
+    @Column(name = "address")
+    @Type(type = "text")
     private String address;
+
+    @Column(name = "home")
+    @Type(type = "text")
     private String homePhone;
+
+    @Column(name = "mobile")
+    @Type(type = "text")
     private String mobilePhone;
+
+    @Column(name = "work")
+    @Type(type = "text")
     private String workPhone;
+
+    @Type(type = "text")
     private String fax;
+
+    @Type(type = "text")
     private String email;
+
+    @Type(type = "text")
     private String email2;
+
+    @Type(type = "text")
     private String email3;
+
+    @Type(type = "text")
     private String homepage;
+
+    @Transient
     private String birthDay;
+
+    @Transient
     private String birthMonth;
+
+    @Transient
     private String birthYear;
+
+    @Transient
     private String anniversaryDay;
+
+    @Transient
     private String anniversaryMonth;
+
+    @Transient
     private String anniversaryYear;
+
+    @Type(type = "text")
     private String address2;
+
+
+    @Column(name = "phone2")
+    @Type(type = "text")
     private String home2;
+
+
+    @Type(type = "text")
     private String notes;
+
+    @Transient
     private String group;
+
+    @Transient
     private String allPhones;
-    private File photo;
+
+    @Column(name = "photo")
+    @Type(type = "text")
+    private String photo;
 
     public int getId() {
         return id;
@@ -147,7 +215,7 @@ public class ContactData {
     }
 
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
 
     public ContactData withId(int id) {
@@ -286,7 +354,7 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getAbsolutePath();
         return this;
     }
 
