@@ -4,23 +4,23 @@
     <middleName>middle 0</middleName>
     <lastName>last 0</lastName>
     <homepage>home 0</homepage>
-    <group>test 0</group>
     <photo>C:\Java lessons\sandbox\src\test\resources\Элена и Вела.jpg</photo>
+    <groups/>
   </contact>
   <contact>
     <firstName>name 1</firstName>
     <middleName>middle 1</middleName>
     <lastName>last 1</lastName>
     <homepage>home 1</homepage>
-    <group>test 1</group>
     <photo>C:\Java lessons\sandbox\src\test\resources\Элена и Вела.jpg</photo>
+    <groups/>
   </contact>
   <contact>
     <firstName>name 2</firstName>
     <middleName>middle 2</middleName>
     <lastName>last 2</lastName>
     <homepage>home 2</homepage>
-    <group>test 2</group>
     <photo>C:\Java lessons\sandbox\src\test\resources\Элена и Вела.jpg</photo>
+    <groups/>
   </contact>
 </list>

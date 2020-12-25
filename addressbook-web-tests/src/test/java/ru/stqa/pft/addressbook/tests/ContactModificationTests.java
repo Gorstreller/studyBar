@@ -54,7 +54,7 @@ public class ContactModificationTests extends TestBase {
                 .withWorkPhone("job").withFax("fax").withEmail("email1").withEmail2("email2").withEmail3("email3")
                 .withHomepage("page").withBirthDay("11").withBirthMonth("March").withBirthYear("1997")
                 .withAnniversaryDay("20").withAnniversaryMonth("November").withAnniversaryYear("1997")
-                .withAddress2("address2").withHome2("home2").withNotes("notes");
+                .withAddress2("address2").withHome2("home2").withNotes("notes").withPhoto(photo);
         app.contact().modify(contact);
         assertThat(app.contact().count(), equalTo(before.size()));
         Contacts after = app.dbHelper().contacts();
