@@ -112,10 +112,6 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void loadPhoto(By locator, String path) {
-        driver.findElement(locator).sendKeys(path);
-    }
-
     private void setDate(By locator, String bday) {
         new Select(driver.findElement(locator)).selectByVisibleText(bday);
     }
