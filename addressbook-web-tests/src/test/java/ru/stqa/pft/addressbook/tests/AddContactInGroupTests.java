@@ -6,6 +6,6 @@ public class AddContactInGroupTests extends TestBase{
 
     @Test
     public void testAddContactInGroup() {
-
+//        addContactInGroup(String )
     }
 }
