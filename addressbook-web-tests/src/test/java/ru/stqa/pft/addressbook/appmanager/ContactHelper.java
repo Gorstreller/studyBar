@@ -28,14 +28,14 @@ public class ContactHelper extends HelperBase {
     }
 
     public void modify(ContactData contact) {
-        initContactEditById(contact);
+        initContactEditionById(contact);
         fillContactForm(contact, false);
         submitContactModification();
         contactCache = null;
         returnToHomePage();
     }
 
-    private void initContactEditById(ContactData modifiedContact) {
+    private void initContactEditionById(ContactData modifiedContact) {
         int id = modifiedContact.getId();
         click(By.xpath("//td/a[@href='edit.php?id=" + id + "']/img"));
     }
@@ -100,7 +100,11 @@ public class ContactHelper extends HelperBase {
         type(By.name("notes"), contactData.getNotes());
 
         if (creation) {
-            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size() == 1);
+                new Select(driver.findElement(By.name("new_group")))
+                        .selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
         }
         else {
             Assert.assertFalse(isElementPresent(By.name("new_group")));
@@ -153,7 +157,7 @@ public class ContactHelper extends HelperBase {
 
     private Contacts contactCache = null;
 
-    public Set<ContactData> all() {
+    public Contacts all() {
         Set<ContactData> contacts = new HashSet<>();
 //        if (contactCache != null) {
 //            return new Contacts(contactCache);
@@ -170,7 +174,7 @@ public class ContactHelper extends HelperBase {
             .withAllPhones(allPhones));
 //            contactCache.add(new ContactData().withId(id).withFirstName(cells));
         }
-        return contacts;
+        return new Contacts(contacts);
     }
 
     public ContactData infoFromEditForm(ContactData contact) {
@@ -180,8 +184,9 @@ public class ContactHelper extends HelperBase {
         String home = driver.findElement(By.name("home")).getAttribute("value");
         String mobile = driver.findElement(By.name("mobile")).getAttribute("value");
         String work = driver.findElement(By.name("work")).getAttribute("value");
+        String home2 = driver.findElement(By.name("phone2")).getAttribute("value");
         driver.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstName(firstName).withLastName(lastName)
-                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
+                .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withHome2(home2);
     }
 }

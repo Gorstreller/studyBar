@@ -4,6 +4,8 @@ import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,12 +38,13 @@ public class ContactCreationTests extends TestBase {
 
     @Test(dataProvider = "validContacts")
     public void testContactCreation(ContactData contact) {
-        Set<ContactData> before = app.contact().all();
+        Groups groups = app.dbHelper().groups();
+        Contacts before = app.dbHelper().contacts();
         app.goTo().contactPage();
         app.contact().create(contact);
         app.contact().returnToHomePage();
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Set<ContactData> after = app.contact().all();
+        Contacts after = app.dbHelper().contacts();
         assertThat(after.size(), equalTo(before.size() + 1));
     }
 
@@ -56,7 +59,7 @@ public class ContactCreationTests extends TestBase {
                 .withFax("fax").withEmail("email1").withEmail2("email2").withEmail3("email3").withHomepage("page")
                 .withBirthDay("11").withBirthMonth("March").withBirthYear("1997").withAnniversaryDay("20")
                 .withAnniversaryMonth("November").withAnniversaryYear("1997").withAddress2("address2")
-                .withHome2("home2").withNotes("notes").withGroup("test1").withPhoto(photo);
+                .withHome2("home2").withNotes("notes");
         app.contact().create(contact);
         app.contact().returnToHomePage();
         assertThat(app.contact().count(), equalTo(before.size()));
