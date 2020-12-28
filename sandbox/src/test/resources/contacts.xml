@@ -23,4 +23,12 @@
     <photo>C:\Java lessons\sandbox\src\test\resources\Элена и Вела.jpg</photo>
     <groups/>
   </contact>
+  <contact>
+    <firstName>name 3</firstName>
+    <middleName>middle 3</middleName>
+    <lastName>last 3</lastName>
+    <homepage>home 3</homepage>
+    <photo>C:\Java lessons\sandbox\src\test\resources\Элена и Вела.jpg</photo>
+    <groups/>
+  </contact>
 </list>

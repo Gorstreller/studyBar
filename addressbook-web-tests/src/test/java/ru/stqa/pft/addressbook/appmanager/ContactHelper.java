@@ -74,26 +74,26 @@ public class ContactHelper extends HelperBase {
         if (birthDay == null) {
             birthDay = "-";
         }
-        setDate(By.name("bday"), birthDay);
+        setSelector(By.name("bday"), birthDay);
 
         String birthMonth = contactData.getBirthMonth();
         if (birthMonth == null) {
             birthMonth = "-";
         }
-        setDate(By.name("bmonth"), birthMonth);
+        setSelector(By.name("bmonth"), birthMonth);
         type(By.name("byear"), contactData.getBirthYear());
 
         String anniversaryDay = contactData.getAnniversaryDay();
         if (anniversaryDay == null) {
             anniversaryDay = "-";
         }
-        setDate(By.name("aday"), anniversaryDay);
+        setSelector(By.name("aday"), anniversaryDay);
 
         String anniversaryMonth = contactData.getAnniversaryMonth();
         if (anniversaryMonth == null) {
             anniversaryMonth = "-";
         }
-        setDate(By.name("amonth"), anniversaryMonth);
+        setSelector(By.name("amonth"), anniversaryMonth);
         type(By.name("ayear"), contactData.getAnniversaryYear());
         type(By.name("address2"), contactData.getAddress2());
         type(By.name("phone2"), contactData.getHome2());
@@ -116,8 +116,8 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    private void setDate(By locator, String bday) {
-        new Select(driver.findElement(locator)).selectByVisibleText(bday);
+    public void setSelector(By locator, String visibleText) {
+        new Select(driver.findElement(locator)).selectByVisibleText(visibleText);
     }
 
     public void returnToHomePage() {
@@ -188,5 +188,11 @@ public class ContactHelper extends HelperBase {
         driver.navigate().back();
         return new ContactData().withId(contact.getId()).withFirstName(firstName).withLastName(lastName)
                 .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withHome2(home2);
+    }
+
+    public void addContactInGroup(ContactData contact, String setGroup) {
+        driver.findElement(By.cssSelector("input[value='" + contact.getId() + "']")).click();
+        setSelector(By.name("to_group"), setGroup);
+
     }
 }

@@ -1,0 +1,86 @@
+<list>
+  <contact>
+    <firstName>firstname 0</firstName>
+    <middleName>middlename 0</middleName>
+    <lastName>lastname 0</lastName>
+    <nickName>nickname 0</nickName>
+    <title>title 0</title>
+    <company>company 0</company>
+    <address>address 0</address>
+    <homePhone>home phone 0</homePhone>
+    <mobilePhone>mobile phone 0</mobilePhone>
+    <workPhone>workphone 0</workPhone>
+    <fax>fax 0</fax>
+    <email>email1@test0.com</email>
+    <email2>email2@test0.com</email2>
+    <email3>email3@test0.com</email3>
+    <homepage>homepage 0</homepage>
+    <birthDay>1</birthDay>
+    <birthMonth>January</birthMonth>
+    <birthYear>2000</birthYear>
+    <anniversaryDay>1</anniversaryDay>
+    <anniversaryMonth>January</anniversaryMonth>
+    <anniversaryYear>2000</anniversaryYear>
+    <address2>address 0</address2>
+    <home2>optional phone 0</home2>
+    <notes>notes 0</notes>
+    <photo>C:\Java lessons\sandbox\src\test\resources\1.jpg</photo>
+    <groups/>
+  </contact>
+  <contact>
+    <firstName>firstname 1</firstName>
+    <middleName>middlename 1</middleName>
+    <lastName>lastname 1</lastName>
+    <nickName>nickname 1</nickName>
+    <title>title 1</title>
+    <company>company 1</company>
+    <address>address 1</address>
+    <homePhone>home phone 1</homePhone>
+    <mobilePhone>mobile phone 1</mobilePhone>
+    <workPhone>workphone 1</workPhone>
+    <fax>fax 1</fax>
+    <email>email1@test1.com</email>
+    <email2>email2@test1.com</email2>
+    <email3>email3@test1.com</email3>
+    <homepage>homepage 1</homepage>
+    <birthDay>1</birthDay>
+    <birthMonth>January</birthMonth>
+    <birthYear>2000</birthYear>
+    <anniversaryDay>1</anniversaryDay>
+    <anniversaryMonth>January</anniversaryMonth>
+    <anniversaryYear>2000</anniversaryYear>
+    <address2>address 1</address2>
+    <home2>optional phone 1</home2>
+    <notes>notes 1</notes>
+    <photo>C:\Java lessons\sandbox\src\test\resources\1.jpg</photo>
+    <groups/>
+  </contact>
+  <contact>
+    <firstName>firstname 2</firstName>
+    <middleName>middlename 2</middleName>
+    <lastName>lastname 2</lastName>
+    <nickName>nickname 2</nickName>
+    <title>title 2</title>
+    <company>company 2</company>
+    <address>address 2</address>
+    <homePhone>home phone 2</homePhone>
+    <mobilePhone>mobile phone 2</mobilePhone>
+    <workPhone>workphone 2</workPhone>
+    <fax>fax 2</fax>
+    <email>email1@test2.com</email>
+    <email2>email2@test2.com</email2>
+    <email3>email3@test2.com</email3>
+    <homepage>homepage 2</homepage>
+    <birthDay>1</birthDay>
+    <birthMonth>January</birthMonth>
+    <birthYear>2000</birthYear>
+    <anniversaryDay>1</anniversaryDay>
+    <anniversaryMonth>January</anniversaryMonth>
+    <anniversaryYear>2000</anniversaryYear>
+    <address2>address 2</address2>
+    <home2>optional phone 2</home2>
+    <notes>notes 2</notes>
+    <photo>C:\Java lessons\sandbox\src\test\resources\1.jpg</photo>
+    <groups/>
+  </contact>
+</list>

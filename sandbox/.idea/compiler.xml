@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sandbox" />
         <module name="addressbook-web-tests" />
+        <module name="mantis-tests" />
         <module name="contact-web-tests" />
       </profile>
     </annotationProcessing>
