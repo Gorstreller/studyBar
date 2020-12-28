@@ -43,4 +43,11 @@ public class ApplicationManager {
         driver.get(properties.getProperty("web.baseURL"));
         driver.manage().window().maximize();
     }
+    public HttpSession  newSession() {
+        return new HttpSession(this);
+    }
+
+    public String getProperty(String key) {
+        return properties.getProperty(key);
+    }
 }
