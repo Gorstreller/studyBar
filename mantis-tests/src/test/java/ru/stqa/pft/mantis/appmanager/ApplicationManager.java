@@ -12,9 +12,10 @@ import java.util.Properties;
 
 public class ApplicationManager {
     private final Properties properties;
-    public WebDriver driver;
+    private WebDriver driver;
 
     private String browser;
+    private RegistrationHelper registrationHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -22,26 +23,14 @@ public class ApplicationManager {
     }
 
     public void stop() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     public void init() throws IOException {
         String target = System.getProperty("target", "local");
         properties.load(new FileReader(String.format("src/test/resources/%s.properties", target)));
-
-        if (browser.equals(BrowserType.CHROME)) {
-            System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-            driver = new ChromeDriver();
-        }
-        else if (browser.equals(BrowserType.FIREFOX)) {
-            driver = new FirefoxDriver();
-        }
-        else if (browser.equals(BrowserType.OPERA)){
-            driver = new OperaDriver();
-        }
-
-        driver.get(properties.getProperty("web.baseURL"));
-        driver.manage().window().maximize();
     }
     public HttpSession  newSession() {
         return new HttpSession(this);
@@ -49,5 +38,31 @@ public class ApplicationManager {
 
     public String getProperty(String key) {
         return properties.getProperty(key);
+    }
+
+    public RegistrationHelper registration() {
+        if (registrationHelper == null) {
+            registrationHelper = new RegistrationHelper(this);
+        }
+        return registrationHelper;
+    }
+
+    public WebDriver getDriver() {
+        if (driver == null) {
+            if (browser.equals(BrowserType.CHROME)) {
+                System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
+                driver = new ChromeDriver();
+            }
+            else if (browser.equals(BrowserType.FIREFOX)) {
+                driver = new FirefoxDriver();
+            }
+            else if (browser.equals(BrowserType.OPERA)){
+                driver = new OperaDriver();
+            }
+
+            driver.get(properties.getProperty("web.baseURL"));
+            driver.manage().window().maximize();
+        }
+        return driver;
     }
 }
