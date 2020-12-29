@@ -2,7 +2,8 @@ package ru.stqa.pft.mantis.appmanager;
 
 import org.subethamail.wiser.Wiser;
 import org.subethamail.wiser.WiserMessage;
-import org.apache.tools.mail.MailMessage;
+import ru.stqa.pft.mantis.model.MailMessage;
+//import org.apache.tools.mail.MailMessage;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -23,7 +24,7 @@ public class MailHelper {
         long start = System.currentTimeMillis();
         while (System.currentTimeMillis() < start + timeout) {
             if (wiser.getMessages().size() >= count) {
-                return wiser.getMessages().stream().map((m) -> toModelMail(m).collect(Collectors.toList()));
+                return wiser.getMessages().stream().map((m) -> toModelMail(m)).collect(Collectors.toList());
             }
             try {
                 Thread.sleep(1000);
@@ -33,6 +34,22 @@ public class MailHelper {
             }
         }
         throw new Error("No mail :(");
+    }
+
+    public static MailMessage toModelMail(WiserMessage message) {
+        try {
+            MimeMessage mimeMessage = message.getMimeMessage();
+            return new MailMessage(mimeMessage.getAllRecipients()[0].toString(),
+                    (String) mimeMessage.getContent());
+        }
+        catch (MessagingException exception) {
+            exception.printStackTrace();
+            return null;
+        }
+        catch (IOException exception) {
+            exception.printStackTrace();
+            return null;
+        }
     }
 
     public void start() {

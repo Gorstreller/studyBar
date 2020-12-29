@@ -14,4 +14,12 @@ public class RegistrationHelper extends HelperBase{
         type(By.id("email-field"), email);
         click(By.cssSelector("input[value='Зарегистрироваться']"));
     }
+
+    public void finish(String confirmationLink, String password, String realname) {
+        driver.get(confirmationLink);
+        type(By.name("realname"), realname);
+        type(By.name("password"), password);
+        type(By.name("password_confirm"), password);
+        click(By.cssSelector("button[type='submit']"));
+    }
 }
