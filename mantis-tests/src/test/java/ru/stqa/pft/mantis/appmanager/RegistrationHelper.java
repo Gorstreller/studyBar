@@ -1,17 +1,17 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 
-public class RegistrationHelper {
-    private final ApplicationManager app;
-    private WebDriver driver;
+public class RegistrationHelper extends HelperBase{
 
     public RegistrationHelper(ApplicationManager app) {
-        this.app = app;
-        driver = app.getDriver();
+        super(app);
     }
 
     public void start(String username, String email) {
         driver.get(app.getProperty("web.baseURL") + "/signup_page.php");
+        type(By.id("username"), username);
+        type(By.id("email-field"), email);
+        click(By.cssSelector("input[value='Зарегистрироваться']"));
     }
 }
