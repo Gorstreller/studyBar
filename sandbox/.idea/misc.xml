@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../contact-web-tests/pom.xml" />
         <option value="$PROJECT_DIR$/../mantis-tests/pom.xml" />
+        <option value="$PROJECT_DIR$/../soap-sample/pom.xml" />
       </list>
     </option>
   </component>
